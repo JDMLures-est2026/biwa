@@ -1,274 +1,242 @@
-/* ==========================================
-   無印良品（MUJI）公式フォント仕様・完全一致版
-   低解像度ぼやけ補正＆エッジの点線ノイズ強制消去【完全版】
-   ========================================== */
-:root {
-    --muji-red: #7F1416;       /* 無印良品ロゴのエンジ */
-    --muji-white: #FFFFFF;     /* 純白 */
-    --muji-bg-muji: #F4EEDF;   /* 深く温かみのある無印ベージュ（全面適用） */
-    --muji-text: #333333;      /* 濃いグレー（文字用） */
-    --muji-muted: #7F7F7F;     /* 補助的なグレー */
-    --muji-border: #DCD6CD;    /* ベージュに溶け込む繊細な境界線 */
-    --placeholder-bg: #EAE6DC; /* ダミー用の落ち着いたグレーベージュ */
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
+\/* ==========================================================================
+   ベース設定（無印良品モデル：ミニマル・調和）
+   ========================================================================== */
 body {
-    /* ★無印良品公式サイトのフォント指定（Helvetica Neue, Arial）を100%忠実に完全再現 */
     font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-    background-color: var(--muji-bg-muji); 
-    color: var(--muji-text);
-    line-height: 2.0;
-    letter-spacing: 0.08em;
-    /* 無印公式サイトのタイポグラフィの美しさをスマホで再現するアンチエイリアス処理 */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    padding: 0;
+    background-color: #FDFDFB; /* 目が疲れない上質な白 */
+    color: #2C2623; /* 純黒を排除したダークショコラ */
     margin: 0;
+    padding: 0;
+    line-height: 1.7;
+    letter-spacing: 0.05em; /* 文字間隔をゆったり広げて窮屈さを排除 */
 }
 
-/* スマホ表示に特化したメイン容器 */
 .container {
-    width: 100%;
-    max-width: 480px; 
+    max-width: 640px; /* スマホ・縦長画面に最適化 */
     margin: 0 auto;
-    background-color: var(--muji-bg-muji); 
-    padding: 40px 24px;
+    padding: 40px 20px 100px; /* 下部ボタンが被らないための余白 */
+    background-color: #FFFFFF;
 }
 
-/* 1. 最上位メインタイトル */
+/* タイトル・ヘッドライン */
 .main-title {
-    font-size: 19px;
-    font-weight: 600;
-    color: var(--muji-text);
-    line-height: 1.5;
-    text-align: center;
-    margin-bottom: 12px;
-    margin-top: 10px;
-}
-
-/* 2. 小見出し */
-.sub-headline {
-    font-size: 13px;
+    font-size: 24px;
     font-weight: bold;
-    color: var(--muji-red);
     text-align: center;
-    margin-bottom: 24px;
-    letter-spacing: 0.1em;
+    line-height: 1.4;
+    margin-bottom: 12px;
 }
 
-/* 3. TOP画像枠（MUJI公式4px角丸） */
-.top-image-placeholder {
-    width: 100%;
-    height: 240px;
-    background-color: var(--placeholder-bg);
-    border: 1px solid var(--muji-border);
-    border-radius: 4px; 
-    margin-bottom: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden; 
+.sub-headline {
+    font-size: 14px;
+    font-weight: bold;
+    color: #2C2623;
+    text-align: center;
+    background-color: #F0EDE9;
+    padding: 6px 12px;
+    display: table;
+    margin: 0 auto 24px;
+    border-radius: 4px;
 }
 
-.placeholder-icon {
-    font-size: 32px;
-    margin-bottom: 8px;
-}
 
-.placeholder-text {
-    font-size: 11px;
-    color: var(--muji-muted);
-    letter-spacing: 0.05em;
-}
-
-/* 4. リード文（MUJI公式4px角丸） */
 .lead-text {
-    font-size: 13px;
-    color: var(--muji-text);
-    text-align: left;
-    background-color: var(--muji-white); 
-    padding: 20px;
-    border: 1px solid var(--muji-border);
-    border-radius: 4px; 
-    margin-bottom: 24px;
+    font-size: 15px;
+    text-align: center;
+    margin: 32px;
+    padding: 0 10px;
 }
 
-/* 5. インスタ用9:16動画枠（MUJI公式4px角丸） */
+.top-image-placeholder img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ビデオコンテナ */
 .video-container {
     width: 100%;
-    max-width: 240px; 
-    margin: 24px auto;
-    border: 1px solid var(--muji-border);
-    border-radius: 4px; 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-    background-color: #000000; 
-    font-size: 0;
-    overflow: hidden; 
+    margin-bottom: 32px;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .video-container video {
     width: 100%;
-    height: auto;
     display: block;
-    object-fit: contain;
 }
 
-/* セクション共通見出し */
+/* セクションタイトル */
 .section-title {
-    font-size: 14px;
-    font-weight: 600;
-    border-bottom: 1px solid var(--muji-text);
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid #E6E1DC;
     padding-bottom: 8px;
-    margin-top: 40px;
-    margin-bottom: 20px;
+    margin: 48px 0 20px;
 }
 
+/* ==========================================================================
+   特設：音声バグ修正アナウンスブロック（UX座布団）
+   ========================================================================== */
+.notice-block {
+    background-color: #F5F5F0; /* 空間を壊さない淡いニュアンスベージュ */
+    border: 1px solid #E6E1DC;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.notice-title {
+    font-size: 15px;
+    font-weight: bold;
+    color: #C8553D; /* 警告色ではなく温かみのある赤橙（テラコッタ） */
+    margin: 0 0 10px 0;
+}
+
+.notice-desc {
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   コンポーネント（カード・ブロック等）
+   ========================================================================== */
 /* メリットカード */
 .benefit-card {
-    margin-bottom: 20px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--muji-border); 
+    background-color: #FAFAFA;
+    border: 1px solid #F0EDE9;
+    border-radius: 8px;
+    padding: 18px;
+    margin-bottom: 16px;
 }
 
 .benefit-title {
-    font-size: 13px;
+    font-size: 16px;
     font-weight: bold;
-    color: var(--muji-red); 
     margin-bottom: 6px;
 }
 
 .benefit-desc {
-    font-size: 12.5px;
-    color: var(--muji-text);
+    font-size: 14px;
+    color: #555555;
 }
 
-/* 運営体制テキストブロック（MUJI公式4px角丸） */
+/* 一般インフォブロック */
 .info-block {
-    font-size: 12.5px;
-    color: var(--muji-text);
-    line-height: 2.0;
-    background-color: var(--muji-white); 
+    font-size: 14px;
+    color: #2C2623;
+    background-color: #FAFAFA;
     padding: 20px;
-    border: 1px solid var(--muji-border);
-    border-radius: 4px; 
+    border-radius: 8px;
+    margin-bottom: 24px;
 }
 
-/* プロフィール領域（MUJI公式4px角丸） */
+/* リスト・装飾 */
+.flow-list, .user-list {
+    padding-left: 20px;
+    margin: 12px 0;
+}
+
+.flow-list li, .user-list li {
+    margin-bottom: 8px;
+}
+
+.flow-note {
+    font-size: 13px;
+    font-weight: bold;
+    color: #C8553D;
+    margin-top: 12px;
+}
+
+.area-tags {
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    margin: 10px 0;
+}
+
+.filter-note {
+    font-size: 13px;
+    background-color: #FFF;
+    border: 1px dashed #C8553D;
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 12px;
+}
+
+/* プロフィール */
 .profile-block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--muji-white);
-    padding: 24px;
-    border: 1px solid var(--muji-border);
-    border-radius: 4px; 
-    margin-bottom: 40px;
+    align-items: flex-start;
+    gap: 16px;
+    background-color: #FAFAFA;
+    padding: 20px;
+    border-radius: 8px;
 }
 
-/* 顔写真のつぶれ・ガタガタ点線強制補正（アイコンは完全な正円を維持） */
-.profile-avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 50% !important; 
-    overflow: hidden;
-    border: none !important; 
-    margin-bottom: 12px;
-    background-color: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    box-shadow: 0 0 0 1px var(--muji-white) inset;
-    filter: drop-shadow(0 0 0.5px rgba(0,0,0,0.05));
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+.profile-avatar{
+    text-align: center;
 }
 
 .profile-avatar img {
-    width: 100%;
-    height: 100%;
-    border: none !important;
-    object-fit: cover !important; 
-    object-position: center;
-    image-rendering: auto !important; 
-    transform: translateZ(0); 
-}
-
-.profile-text {
-    font-size: 12px;
-    color: var(--muji-text);
-    line-height: 1.8;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    text-align: center;
 }
 
 .profile-text strong {
     display: block;
-    font-size: 13px;
-    text-align: center;
-    margin-bottom: 8px;
-    color: var(--muji-text);
+    font-size: 15px;
+    margin-bottom: 4px;
 }
 
-/* スマホ最下部に固定される画像内包型シングル応募ボタン領域 */
+.profile-text p {
+    font-size: 13px;
+    margin: 0;
+    color: #555555;
+}
+
+/* ユーティリティ */
+.text-center { text-align: center; }
+.fs-small { font-size: 12px; color: #777777; }
+
+/* ==========================================================================
+   ★UX確定：固定CTAボタン（シングルアクション）
+   ========================================================================== */
 .cta-container {
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 8px;
-    position: sticky;
-    bottom: 16px; 
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 600px;
     z-index: 100;
 }
 
-/* 応募ボタン（MUJI公式角丸4px ✕ 公式フォント仕様） */
 .cta-button {
-    display: flex;          
-    align-items: center;    
+    display: flex;
+    align-items: center;
     justify-content: center;
-    width: 100%;
-    background-color: var(--muji-red);
-    color: var(--muji-white); 
+    background-color: #7f1416;
+    color: #FFFFFF;
     text-decoration: none;
-    font-size: 13.5px;
+    font-size: 16px;
     font-weight: bold;
-    padding: 12px 20px;     
-    border-radius: 4px !important; /* MUJI公式の角丸4px固定 */
-    border: none;
-    transition: opacity 0.2s ease;
-    box-shadow: 0 4px 16px rgba(127, 20, 22, 0.2);
-}
-
-/* ボタン内サムネイルのギザギザ・点線ジャギー完全消滅処理 */
-.cta-btn-thumb {
-    width: 32px;            
-    height: 32px;
-    border-radius: 50% !important; 
-    object-fit: cover !important;  
-    object-position: center;
-    margin-right: 10px;     
-    border: none !important; 
-    background-color: transparent;
-    flex-shrink: 0; 
-    box-shadow: 0 0 0 1px var(--muji-red) inset;
-    image-rendering: auto !important;
-    transform: translateZ(0);
+    height: 56px;
+    border-radius: 28px;
+    box-shadow: 0 8px 24px rgba(44, 38, 35, 0.25);
+    transition: background-color 0.2s;
 }
 
 .cta-button:hover {
-    opacity: 0.85;
+    background-color: #4A403B;
 }
 
 /* フッター */
 footer {
     text-align: center;
-    font-size: 10px;
-    color: var(--muji-muted);
-    margin-top: 48px;
-    border-top: 1px solid var(--muji-border);
-    padding-top: 20px;
+    font-size: 11px;
+    color: #A0A0A0;
+    margin-top: 64px;
 }
